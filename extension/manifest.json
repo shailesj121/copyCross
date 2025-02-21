@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "copyCrossPlatform",
+    "version": "1.0.0",
+    "description": "Browser Extension that allows you to manages notes across multiple platforms.",
+    "permissions": [
+        "storage",
+        "activeTab", 
+        "scripting"
+    ],
+    
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "/assets/images/fev_icon.png"
+  },
+    "host_permissions": ["<all_urls>"],
+    "background": {
+    "service_worker": "/background.js"
+  },
+    "icons": {
+    "128": "/assets/images/fev_icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["popupOptionOnSelectText.js"]
+    }
+  ]
+}
