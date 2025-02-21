@@ -4,7 +4,11 @@ import { getMessaging, getToken, onMessage } from "firebase/messaging"
 import './App.css'
 
 function App() {
-  new Notification('Hello')
+  Notification.requestPermission().then((permission)=> {
+    if(permission == "granted"){
+      new Notification('Hello')
+    }
+  })
 
   return (
     <>
